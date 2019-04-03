@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'editor',
-    loadChildren: './modules/editor/editor.module#EditorModule'
+    path: 'info',
+    loadChildren: './modules/info/info.module#InfoModule'
   },
   {
     path: '**',
-    redirectTo: 'editor' 
+    redirectTo: 'info'
   }
 ];
 

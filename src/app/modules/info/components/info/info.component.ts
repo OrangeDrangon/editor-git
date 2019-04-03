@@ -4,11 +4,11 @@ import { GitService } from 'src/app/modules/git/services/git/git.service';
 import { FileService } from 'src/app/modules/git/services/file/file.service';
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  selector: 'app-editor-info',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss']
 })
-export class EditorComponent implements OnInit {
+export class InfoComponent implements OnInit {
 
   public constructor(private gitService: GitService, private fileService: FileService) {
     // this.gitService.emitter.subscribe({ next: (data: string) => { console.log(data); } });

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from 'src/app/modules/git/services/file/file.service';
 import { GitService, ICloneOptions } from 'src/app/modules/git/services/git/git.service';
+import { ReposService } from '../../services/repos/repos.service';
 
 @Component({
   selector: 'app-editor-form',
@@ -16,7 +17,7 @@ export class FormComponent implements OnInit {
     password: ''
   };
 
-  public constructor(private fileService: FileService, private gitService: GitService) { }
+  public constructor(private fileService: FileService, private gitService: GitService, private reposService: ReposService) { }
 
   public async ngOnInit() { }
 
@@ -35,8 +36,7 @@ export class FormComponent implements OnInit {
           password
         };
         await this.gitService.clone(options);
-        const files = await this.fileService.readDir(`/${this.data.name}`);
-        console.log(files);
+        this.reposService.add(name);
       } else {
         alert('Repo already cloned!');
       }
