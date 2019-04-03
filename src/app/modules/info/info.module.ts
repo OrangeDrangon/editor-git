@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { MatInputModule, MatExpansionModule, MatButtonModule } from '@angular/material';
+import { MatInputModule, MatExpansionModule, MatButtonModule, MatSelectModule } from '@angular/material';
 
 
 import { InfoRoutingModule } from './info-routing.module';
@@ -21,7 +21,8 @@ import { GitModule } from '../git/git.module';
     FormsModule,
     MatInputModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [ReposService]
 })

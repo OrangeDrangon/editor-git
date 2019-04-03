@@ -1,3 +1,19 @@
-<p>
-  repos works!
-</p>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Repos
+    </mat-panel-title>
+    <mat-panel-description>
+      Select the repo to open
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <form>
+    <mat-form-field>
+      <mat-label>Repo</mat-label>
+      <mat-select [(ngModel)]="selected" name="select">
+        <mat-option *ngFor="let repo of reposService.repos" value="{{repo}}">{{repo}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="open();">Open!</button>
+  </form>
+</mat-expansion-panel>

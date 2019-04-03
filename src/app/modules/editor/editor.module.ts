@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 import { EditorRoutingModule } from './editor-routing.module';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [EditorComponent],
   imports: [
     CommonModule,
     EditorRoutingModule,
