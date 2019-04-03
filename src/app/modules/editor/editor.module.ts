@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
-import {MatTreeModule, MatIconModule, MatButtonModule} from '@angular/material'; 
+import { MatTreeModule, MatIconModule, MatButtonModule } from '@angular/material';
 
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
@@ -16,9 +15,9 @@ import { TreeComponent } from './components/tree/tree.component';
     CommonModule,
     EditorRoutingModule,
     MonacoEditorModule,
-	MatTreeModule,
-	MatIconModule,
-	MatButtonModule
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: []
 })

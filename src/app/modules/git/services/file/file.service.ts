@@ -50,23 +50,23 @@ export class FileService {
   public async removeFile(path: string): Promise<void> {
     return await this.fs.promises.unlink(path);
   }
-  
+
   public async generateTree(dir: string): Promise<IEntry[]> {
-	const array: IEntry[] = [];
-	const files = await this.readDir(`/${dir}`);
-	for (const file of files) {
-      if (file === '.git'){ continue; }
-	  const split = file.split('.');
-	  if (split[1] !== undefined) {
-		  const read = async () => { 
-		    return await this.readFile(`/${dir}/${file}`); 
-		  };
-		  array.push({ name: file, type: 'file', read });
-	  } else {
-		  array.push({ name: file, type: 'directroy', children: await this.generateTree(`${dir}/${file}`) });
-	  }
-	}
-	return array;
+    const array: IEntry[] = [];
+    const files = await this.readDir(`/${dir}`);
+    for (const file of files) {
+      if (file === '.git') { continue; }
+      const split = file.split('.');
+      if (split[1] !== undefined) {
+        const read = async () => {
+          return await this.readFile(`/${dir}/${file}`);
+        };
+        array.push({ name: file, type: 'file', read });
+      } else {
+        array.push({ name: file, type: 'directroy', children: await this.generateTree(`${dir}/${file}`) });
+      }
+    }
+    return array;
   }
 }
 
