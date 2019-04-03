@@ -4,7 +4,7 @@ import { GitService, ICloneOptions } from 'src/app/modules/git/services/git/git.
 import { ReposService } from '../../services/repos/repos.service';
 
 @Component({
-  selector: 'app-editor-form',
+  selector: 'app-info-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
