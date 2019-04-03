@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-editor',
+  selector: 'app-editor-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
