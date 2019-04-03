@@ -13,7 +13,11 @@ export class FileService {
   }
 
   public async makeDir(path: string): Promise<void> {
-    return await this.fs.promises.mkdir(path);
+    try {
+      return await this.fs.promises.mkdir(path);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   public async removeDir(path: string): Promise<void> {
@@ -29,7 +33,8 @@ export class FileService {
   }
 
   public async readFile(path: string): Promise<string> {
-    return await this.fs.promises.readFile(path);
+    const decoder = new TextDecoder();
+    return decoder.decode(await this.fs.promises.readFile(path));
   }
 
   public async removeFile(path: string): Promise<void> {

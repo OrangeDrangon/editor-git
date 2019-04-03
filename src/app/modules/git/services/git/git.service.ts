@@ -11,6 +11,7 @@ export class GitService {
 
   public constructor(private fileService: FileService) {
     git.plugins.set('fs', this.fileService.fs);
+    git.init({dir: '/'}).then(() => { console.log('Initialized'); });
   }
 
   public async clone(options: ICloneOptions): Promise<void> {
