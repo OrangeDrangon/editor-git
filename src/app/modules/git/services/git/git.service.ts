@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import * as git from 'isomorphic-git';
+import { BehaviorSubject } from 'rxjs';
 
 import { FileService } from '../file/file.service';
 
@@ -8,10 +9,20 @@ import { FileService } from '../file/file.service';
   providedIn: 'root'
 })
 export class GitService {
+  public emitter: BehaviorSubject<string>;
 
   public constructor(private fileService: FileService) {
+    this.emitter = new BehaviorSubject<any>(undefined);
+
+    const emit = (event: string, message: string) => {
+      if (event === 'message') {
+        this.emitter.next(message);
+      }
+    };
+
     git.plugins.set('fs', this.fileService.fs);
-    git.init({dir: '/'}).then(() => { console.log('Initialized'); });
+    git.plugins.set('emitter', { emit });
+    git.init({ dir: '/' }).then(() => { console.log('Initialized'); });
   }
 
   public async clone(options: ICloneOptions): Promise<void> {

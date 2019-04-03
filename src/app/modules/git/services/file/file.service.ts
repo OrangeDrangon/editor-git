@@ -12,11 +12,13 @@ export class FileService {
     this.fs = new FS('git');
   }
 
-  public async makeDir(path: string): Promise<void> {
+  public async makeDir(path: string): Promise<boolean> {
     try {
-      return await this.fs.promises.mkdir(path);
+      await this.fs.promises.mkdir(path);
+      return true;
     } catch (error) {
       console.error(error);
+      return false;
     }
   }
 
