@@ -9,19 +9,20 @@
   </mat-expansion-panel-header>
   <form>
     <mat-form-field>
-      <input matInput type="text" placeholder="Name" id="name">
+      <input matInput type="text" placeholder="Name" name="name" [(ngModel)]="data.name">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="url" placeholder="URL" id="url">
+      <input matInput type="url" placeholder="URL" name="url" [(ngModel)]="data.url">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="Depth" id="depth">
+      <input matInput type="number" placeholder="Depth" name="depth" [(ngModel)]="data.depth">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Username" id="username">
+      <input matInput type="text" placeholder="Username" name="username" [(ngModel)]="data.username">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="password" placeholder="Password" id="password">
+      <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="data.password">
     </mat-form-field>
+    <button mat-raised-button color="primary" (click)="clone();">Clone!</button>
   </form>
 </mat-expansion-panel>

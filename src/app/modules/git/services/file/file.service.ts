@@ -17,17 +17,25 @@ export class FileService {
       await this.fs.promises.mkdir(path);
       return true;
     } catch (error) {
-      console.error(error);
       return false;
     }
   }
 
-  public async removeDir(path: string): Promise<void> {
-    return await this.fs.promises.rmdir(path);
+  public async removeDir(path: string): Promise<boolean> {
+    try {
+      await this.fs.promises.rmdir(path);
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
   public async readDir(path: string): Promise<string[]> {
-    return await this.fs.promises.readdir(path);
+    try {
+      return await this.fs.promises.readdir(path);
+    } catch (error) {
+      return undefined;
+    }
   }
 
   public async writeFile(path: string, data: string): Promise<void> {

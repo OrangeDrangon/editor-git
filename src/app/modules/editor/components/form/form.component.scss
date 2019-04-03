@@ -1,8 +1,18 @@
 form {
   display: flex;
   flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
 
-  input {
+  mat-form-field {
     width: 100%;
+  }
+
+  button {
+    width: 33.33%;
+  }
+
+  input:invalid {
+    color: red;
   }
 }
