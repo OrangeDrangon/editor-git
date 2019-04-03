@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReposComponent } from './repos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatExpansionModule, MatSelectModule, MatButtonModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ReposComponent', () => {
   let component: ReposComponent;
@@ -8,9 +12,18 @@ describe('ReposComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReposComponent ]
+      declarations: [ReposComponent],
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        RouterTestingModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatButtonModule,
+        MatSelectModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

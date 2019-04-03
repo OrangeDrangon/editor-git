@@ -1,0 +1,41 @@
+dist: xenial
+language: node_js
+
+addons:
+    chrome: stable
+    firefox: latest
+
+cache:
+    directories:
+        - node_modules
+
+node_js:
+    - "11"
+
+branches:
+    only:
+        - master
+
+matrix:
+    fast_finish: true
+
+install:
+    - npm install
+
+before_script:
+    - export CHROME_BIN=/usr/bin/google-chrome
+
+script:
+    - npm run lint -- --fix=false --typeCheck=true
+    - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox,FirefoxHeadless
+
+after_success:
+    - npm run build -- --base-href="https://editor.kmr.pw/" --prod
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: dist/$GH_REPO
+    on:
+        branch: master
