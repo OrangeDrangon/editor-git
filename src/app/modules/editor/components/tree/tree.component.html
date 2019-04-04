@@ -6,7 +6,9 @@
       <button mat-icon-button disabled>
         <mat-icon class="mat-icon-rtl-mirror">description</mat-icon>
       </button>
-      {{node.name}}
+      <button mat-button (click)="open(node)">
+        {{node.name}}
+      </button>
     </li>
   </mat-tree-node>
   <!-- This is the tree node template for expandable nodes -->

@@ -18,8 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     GitModule,
     FormsModule,
-    MonacoEditorModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

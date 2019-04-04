@@ -1,0 +1,22 @@
+mat-sidenav-container {
+  width: 100vw;
+  height: 100vh;
+
+  mat-sidenav {
+    display: flex;
+    white-space: nowrap;
+
+    width: 400px;
+    max-width: 400px;
+
+    app-editor-tree {
+      display: flex;
+      overflow: visible;
+    }
+  }
+
+  ngx-monaco-editor {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+  }
+}

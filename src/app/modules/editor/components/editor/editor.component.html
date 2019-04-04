@@ -1,1 +1,8 @@
-<app-editor-tree [repo]="repo"></app-editor-tree>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <app-editor-tree [repo]="repo"></app-editor-tree>
+  </mat-sidenav>
+    <mat-sidenav-content>
+      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    </mat-sidenav-content>
+</mat-sidenav-container>
